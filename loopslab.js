@@ -16,7 +16,7 @@ try {
     console.log("Maximum number of calls:", callCount);
 }
 
-// part 2
+// // part 2
 
 function trampoline(functionToRun) {
     let result = functionToRun;
@@ -43,31 +43,60 @@ function flattenArray(items, flattened = []) {
 
 // test it
 
-// const nestedArray = [
-//     1,
-//     [2, 3],
-//     [4, [5, 6]],
-//     [7, [8, [9, [10]]]]
-// ];
+const nestedArray = [
+    1,
+    [2, 3],
+    [4, [5, 6]],
+    [7, [8, [9, [10]]]]
+];
 
-// const flattenedArray = trampoline(
-//     flattenArray([...nestedArray])
-// );
+const flattenedArray = trampoline(
+    flattenArray([...nestedArray])
+);
 
-// console.log(flattenedArray);
+console.log(flattenedArray);
 
 // part 3
+
 const primeNumbersDisplay = document.querySelector("#primeNumbers");
+// if prime number
 function isPrime(number) {
-    if(number < 2) {
+    if (number < 2) {
         return false;
     }
 
-    for (let divisor = 2; divisor < number; divisor++){
-        if (number % divisor === 0){
+    for (let divisor = 2; divisor < number; divisor++) {
+        if (number % divisor === 0) {
             return false;
         }
     }
 
     return true;
 }
+
+function displayPrimes(n) {
+    primeNumbersDisplay.textContent = "";
+
+    let currentNumber = 2;
+
+    function calculateNext() {
+        if (currentNumber > n) {
+            alert("The calculation is finished!");
+            return;
+        }
+
+        // show prime numbers
+        if (isPrime(currentNumber)) {
+            primeNumbersDisplay.textContent += currentNumber + " ";
+        }
+
+        currentNumber++;
+        // timeout
+
+        setTimeout(calculateNext, 0);
+    }
+
+    calculateNext();
+}
+
+displayPrimes(1000);
