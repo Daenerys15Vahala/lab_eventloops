@@ -40,3 +40,34 @@ function flattenArray(items, flattened = []) {
     }
     return () => flattenArray(items, flattened);
 }
+
+// test it
+
+// const nestedArray = [
+//     1,
+//     [2, 3],
+//     [4, [5, 6]],
+//     [7, [8, [9, [10]]]]
+// ];
+
+// const flattenedArray = trampoline(
+//     flattenArray([...nestedArray])
+// );
+
+// console.log(flattenedArray);
+
+// part 3
+const primeNumbersDisplay = document.querySelector("#primeNumbers");
+function isPrime(number) {
+    if(number < 2) {
+        return false;
+    }
+
+    for (let divisor = 2; divisor < number; divisor++){
+        if (number % divisor === 0){
+            return false;
+        }
+    }
+
+    return true;
+}
