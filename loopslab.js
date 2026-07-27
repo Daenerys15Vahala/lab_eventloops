@@ -43,18 +43,18 @@ function flattenArray(items, flattened = []) {
 
 // test it
 
-const nestedArray = [
-    1,
-    [2, 3],
-    [4, [5, 6]],
-    [7, [8, [9, [10]]]]
-];
+// const nestedArray = [
+//     1,
+//     [2, 3],
+//     [4, [5, 6]],
+//     [7, [8, [9, [10]]]]
+// ];
 
-const flattenedArray = trampoline(
-    flattenArray([...nestedArray])
-);
+// const flattenedArray = trampoline(
+//     flattenArray([...nestedArray])
+// );
 
-console.log(flattenedArray);
+// console.log(flattenedArray);
 
 // part 3
 
